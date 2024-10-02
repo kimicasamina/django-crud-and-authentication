@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>
+        {% block title %}
+        Blog Post Django App
+        {% endblock  %}
+    </title>
+    <script src="{% static "js/main.js" %}" defer></script>
+</head>
+<body>
+    <nav class="nav">
+        <li class="nav__item">
+            <a class="nav__link" href="/">
+                Home
+            </a>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="/about">About</a></li>
+        <li class="nav__item"><a class="nav__link" href="/posts">Posts</a></li>
+        <li class="nav__item"><a class="nav__link" href="/admin">Login as Admin</a></li>
+    </nav>
+    <main class="main">
+        {% block content %}
+
+        {% endblock  %}
+    </main>
+</body>
+</html>
+
+

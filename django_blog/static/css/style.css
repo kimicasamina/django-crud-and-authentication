@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*--- reddit mono ---*/
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+
+/* Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --text-color: #141313;
+  --bg-color: #fefefe;
+  --primary: tomato;
+  --accent: #28d39a;
+  --secondary: orange;
+  --gray: #504949;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.4;
+
+  font-family: "Reddit Mono";
+  /* poppins: ["Poppins", "sans-serif"],
+  inter: ["Inter", "sans-serif"],
+  serif: ["Merriweather", "serif"],
+  reddit: ["Reddit Mono", "monospace"], */
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  background: var(--accent);
+  color: var(--text-color);
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 300ms;
+}
+
+h1 {
+  color: var(--primary);
+}
+
+/* ---- NAV ---- */
+.nav {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav .nav__item {
+  border: solid 1px #a200ff00;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.nav .nav__item:hover {
+  border: solid 1px #a200ff00;
+  background-color: var(--primary);
+}
+
+.nav .nav__link {
+  display: flex;
+  gap: 8px;
+  color: var(--text-color);
+}
+
+.nav .nav__link span {
+  display: block;
+}
+
+.nav .nav__icon {
+  width: 8px;
+  height: 8px;
+  display: block;
+}
+
+/* ---- MAIN ---- */
+.main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ---- POSTS ---- */
+.section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  margin: 24px 0;
+}
+
+.post .post__title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.post .post__title:hover {
+  color: var(--gray);
+}
+
+.post .post__date {
+  font-size: 16px;
+  opacity: 0.8;
+  color: var(--secondary);
+}
+
+.post .post__body {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.post .post__btn {
+  max-width: 100px;
+}
