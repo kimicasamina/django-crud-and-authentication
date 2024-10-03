@@ -13,6 +13,7 @@
   --accent: #28d39a;
   --secondary: orange;
   --gray: #504949;
+  --transparent: #ffffff00;
 }
 
 * {
@@ -62,6 +63,27 @@ h1 {
   color: var(--primary);
 }
 
+.btn {
+  outline: none;
+  /* background: var(--primary);
+  color: var(--text-color); */
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--transparent);
+  color: var(--accent);
+  border: solid 1px var(--accent);
+}
+
+.btn-secondary {
+  background: var(--primary);
+  color: var(--text-color);
+  border: solid 1px var(--primary);
+}
+
 /* ---- NAV ---- */
 .nav {
   width: 100%;
@@ -75,7 +97,7 @@ h1 {
 }
 
 .nav .nav__item {
-  border: solid 1px #a200ff00;
+  border: solid 1px var(--transparent);
   padding: 4px 8px;
   cursor: pointer;
 }
@@ -99,6 +121,15 @@ h1 {
   width: 8px;
   height: 8px;
   display: block;
+}
+
+.nav .nav__cta {
+  width: 100%;
+  max-width: 300px;
+  align-self: end;
+  justify-self: end;
+  display: flex;
+  row-gap: 8px;
 }
 
 /* ---- MAIN ---- */
@@ -146,4 +177,43 @@ h1 {
 
 .post .post__btn {
   max-width: 100px;
+}
+
+/* ---- REGISTER ---- */
+.form {
+  padding: 32px 0;
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 8px;
+}
+
+.form label {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.form input {
+  width: 100%;
+  padding: 4px;
+}
+
+.form .helptext {
+  display: none;
+}
+
+.form .btn-submit {
+  margin-top: 16px;
+}
+
+.errorlist {
+  color: pink;
+  font-size: 14px;
+}
+
+.errorlist li::marker {
+  content: "❗️ ";
 }

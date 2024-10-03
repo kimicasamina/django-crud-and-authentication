@@ -22,7 +22,26 @@
         </li>
         <li class="nav__item"><a class="nav__link" href="/about">About</a></li>
         <li class="nav__item"><a class="nav__link" href="/posts">Posts</a></li>
+        {% if user.is_authenticated %}
+        <li class="nav__item"><a class="nav__link" href="{% url "posts:new-post" %}">New Post</a></li>
+            <form action="{% url "users:logout" %}" method="post" class="btn btn-secondary">
+                {% csrf_token %}
+            <button class="btn btn-logout btn-secondary ">Logout</button>    
+            </form>
+        {% else %}
         <li class="nav__item"><a class="nav__link" href="/admin">Login as Admin</a></li>
+        <ul class="nav__cta">
+            <a href="{% url "users:register" %}" class="btn btn-secondary">
+                Register
+            </a>
+            <a href="{% url "users:login" %}" class="btn btn-primary">
+                Login
+            </a>
+            
+        </ul>
+        {% endif %}
+       
+        
     </nav>
     <main class="main">
         {% block content %}
