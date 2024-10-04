@@ -6,7 +6,9 @@ from . import forms
 
 # Create your views here.
 def posts_list(request):
-    posts = Post.objects.all()
+    user = request.user
+    print(user)
+    posts = Post.objects.filter(author=user.id)
     return render(request, 'posts/posts_list.html', {'posts': posts})
 
 def post_page(request, slug):
