@@ -6,8 +6,10 @@
 {% block content %}
   <section class="section">
     <div class="post">
+      <img src="{{ post.banner.url }}" alt="{{ post.title }}" class="post__banner">
+      
       <h1 class="post__title">{{ post.title }}</h1>
-      <p class="post__date">{{ post.date }}</p>
+      <p class="post__date">{{ post.date }} by {{ post.author }}</p>
       <p class="post__body">{{ post.body }}</p>
       <a href="{% url "posts:list" %}" >
         <button class="btn post__btn">Go Back</button>

@@ -145,6 +145,7 @@ h1 {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 75px 90px;
 }
 
 .post {
@@ -152,6 +153,13 @@ h1 {
   flex-direction: column;
   row-gap: 16px;
   margin: 24px 0;
+}
+
+.post__banner {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .post .post__title {
@@ -168,15 +176,36 @@ h1 {
   font-size: 16px;
   opacity: 0.8;
   color: var(--secondary);
+  margin-top: -4px;
 }
 
 .post .post__body {
   font-size: 18px;
   color: var(--text-color);
+  text-wrap: pretty;
 }
 
 .post .post__btn {
   max-width: 100px;
+}
+
+/* ---- NEW POST ---- */
+.new-post {
+  width: 100%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.new-post > div {
+  display: flex;
+  flex-direction: column;
+}
+.new-post input,
+.new-post label {
+  width: 100%;
+  padding: 4px;
 }
 
 /* ---- REGISTER ---- */
