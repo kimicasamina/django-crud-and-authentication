@@ -15,10 +15,13 @@
 </head>
 <body>
     <nav class="nav">
+        <a class="logo" href="/">
+            intangible
+        </a>
         <ul class="nav__items">
             <li class="nav__item">
                 <a class="nav__link" href="/">
-                    Home
+                    Feed
                 </a>
             </li>
             <li class="nav__item"><a class="nav__link" href="/about">About</a></li>
@@ -28,27 +31,30 @@
             <li class="nav__item">
                 <a class="nav__link" href="{% url "posts:new-post" %}">New Post</a>
             </li>
-            <span class="username">Hello, {{ user.username }}</span>
             {% endif %}
         </ul>
-            
-        {% if user.is_authenticated %}
-            <form action="{% url "users:logout" %}" method="post" class="btn btn-secondary">
-                {% csrf_token %}
-            <button class="btn btn-logout btn-secondary ">Logout</button>    
-            </form>
-        {% else %}
-            <ul class="nav__cta">
-                <a href="{% url "users:login" %}" class="btn btn-primary">
-                    Login
-                </a>
-                <a href="{% url "users:register" %}" class="btn btn-secondary">
-                    Register
-                </a>
-                
-            </ul>
+        
+        <div class="user-info flex-wrap">
+                {% if user.is_authenticated %}
+                <span class="username">Hello, {{ user.username }}</span>
+                <form action="{% url "users:logout" %}" method="post" class="form-logout">
+                    {% csrf_token %}
+                <button class="btn btn-logout btn-secondary ">Logout</button>    
+                </form>
 
-        {% endif %}
+                {% else %}
+                <ul class="nav__cta">
+                    <a href="{% url "users:login" %}" class="btn btn-primary">
+                        Login
+                    </a>
+                    <a href="{% url "users:register" %}" class="btn btn-secondary">
+                        Register
+                    </a>
+                    
+                </ul>
+    
+            {% endif %}
+            </div>
        
         
     </nav>

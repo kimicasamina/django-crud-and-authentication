@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 /*--- reddit mono ---*/
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 
 /* Inter */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/* Inconsolata */
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
 
 :root {
   --text-color: #141313;
@@ -29,11 +30,10 @@ body {
   color: var(--text-color);
   line-height: 1.4;
 
-  font-family: "Reddit Mono";
-  /* poppins: ["Poppins", "sans-serif"],
-  inter: ["Inter", "sans-serif"],
-  serif: ["Merriweather", "serif"],
-  reddit: ["Reddit Mono", "monospace"], */
+  font-family: "Inter";
+
+  display: flex;
+  flex-direction: column;
 }
 
 li {
@@ -49,9 +49,12 @@ button {
   outline: none;
   background: var(--accent);
   color: var(--text-color);
-  padding: 8px;
   border: none;
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
@@ -66,10 +69,13 @@ h1 {
 }
 
 .btn {
+  max-width: 200px;
   outline: none;
-  /* background: var(--primary);
-  color: var(--text-color); */
+  display: flex;
+  align-items: center;
+  text-align: center;
   padding: 4px 8px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
 }
@@ -88,40 +94,53 @@ h1 {
 
 /* ---- NAV ---- */
 .nav {
+  min-height: 75px;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 16px;
 
+  /* position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 20px; */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  place-content: center;
+  align-items: center;
 }
 
 .nav .nav__items {
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .nav__item {
   border: solid 1px var(--transparent);
-  padding: 4px 8px;
   cursor: pointer;
+  padding: 4px 8px;
+  gap: 8px;
 }
 
 .nav__item:hover {
   border: solid 1px #a200ff00;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
 }
 
 .nav .nav__link {
-  display: flex;
+  text-align: center;
   gap: 8px;
   padding: 4px 8px;
   color: var(--accent);
   background-color: var(--text-color);
+}
+
+.nav .nav__link:hover {
+  background-color: var(--accent);
+  color: var(--text-color);
 }
 .nav .nav__link span {
   display: block;
@@ -134,27 +153,41 @@ h1 {
 }
 
 .nav .nav__cta {
-  width: 100%;
-  max-width: 400px;
+  /* width: 100%;
+  max-width: 400px; */
   display: flex;
   justify-content: end;
   gap: 8px;
 }
 
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.form-logout {
+  display: flex;
+  justify-self: end;
+}
+
 /* ---- MAIN ---- */
 .main {
+  height: calc(100vh - 75px);
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  /* margin-top: 75px; */
   padding: 16px;
-  height: 800px;
-  overflow-y: scroll;
 }
 
 /* ---- POSTS ---- */
 .section {
-  /* width: 100%;
-  max-width: 1280px; */
+  overflow-y: scroll;
+  scrollbar-width: none;
+  height: 750px;
   width: 100%;
   max-width: 60%;
   margin: 0 auto;
@@ -164,6 +197,7 @@ h1 {
 .post {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   row-gap: 16px;
   /* margin: 24px 0; */
   margin-bottom: 40px;
@@ -179,7 +213,7 @@ h1 {
 .post .post__title {
   font-size: 24px;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 .post .post__title:hover {
@@ -189,7 +223,7 @@ h1 {
 .post .post__date {
   font-size: 16px;
   opacity: 0.8;
-  color: var(--secondary);
+  color: var(--gray);
   margin-top: -4px;
 }
 
@@ -269,4 +303,19 @@ h1 {
   margin-left: 16px;
   padding: 4px 8px;
   background: var(--accent);
+}
+
+.wrap-pretty {
+  text-wrap: pretty;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
