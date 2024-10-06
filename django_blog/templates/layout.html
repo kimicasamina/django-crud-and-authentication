@@ -34,25 +34,25 @@
             {% endif %}
         </ul>
         
-        <div class="user-info flex-wrap">
+        <div class="nav__cta ">
                 {% if user.is_authenticated %}
-                <span class="username">Hello, {{ user.username }}</span>
-                <form action="{% url "users:logout" %}" method="post" class="form-logout">
-                    {% csrf_token %}
-                <button class="btn btn-logout btn-secondary ">Logout</button>    
-                </form>
+                <div class="logged_user">
+                    <span class="username">Hello, {{ user.username }}</span>
+                    <form action="{% url "users:logout" %}" method="post" class="form-logout">
+                        {% csrf_token %}
+                    <button class="btn btn-logout btn-secondary ">Logout</button>    
+                    </form>
+                </div>
 
                 {% else %}
-                <ul class="nav__cta">
+                <div class="guest">
                     <a href="{% url "users:login" %}" class="btn btn-primary">
                         Login
                     </a>
                     <a href="{% url "users:register" %}" class="btn btn-secondary">
                         Register
                     </a>
-                    
-                </ul>
-    
+                </div>
             {% endif %}
             </div>
        

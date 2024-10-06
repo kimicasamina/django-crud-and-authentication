@@ -69,7 +69,8 @@ h1 {
 }
 
 .btn {
-  max-width: 200px;
+  width: 100%;
+  max-width: fit-content;
   outline: none;
   display: flex;
   align-items: center;
@@ -157,7 +158,24 @@ h1 {
   max-width: 400px; */
   display: flex;
   justify-content: end;
+  align-items: center;
   gap: 8px;
+}
+
+.nav__cta .logged_user {
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.nav__cta .guest {
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: end;
 }
 
 .logo {
