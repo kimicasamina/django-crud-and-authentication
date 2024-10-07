@@ -25,16 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-
-try:
-    SECRET_KEY = os.environ["SECRET_KEY"]
-except KeyError as e:
-    raise RuntimeError("Could not find a SECRET_KEY in environment") from e
+SECRET_KEY='django-insecure-qtk2m!#0dj9b48)uz&24daik5p^pob2g(vs#(7=qn+y_7d0hbi'
+# try:
+#     SECRET_KEY = os.environ["SECRET_KEY"]
+# except KeyError as e:
+#     raise RuntimeError("Could not find a SECRET_KEY in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://bukopy.onrender.com']
+ALLOWED_HOSTS = ['*', 'https://bukopy.onrender.com'] # or use specific host name
 
 
 # Application definition
@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'django_blog.urls'
@@ -145,9 +147,11 @@ MEDIA_URL = 'media/'
 
 # PROD MODE
 STATICFILES_DIRS = [BASE_DIR / "static"] # new
-STATIC_ROOT = BASE_DIR / "staticfiles" # new
+# STATIC_ROOT = BASE_DIR / "staticfiles" # new
 
-
+STATIC_URL = 'static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
