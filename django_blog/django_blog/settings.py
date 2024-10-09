@@ -10,9 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY= config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config.("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = config("ALLOWED_HOST").split(",")
 
 # Application definition
 INSTALLED_APPS = [
@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'django_blog.wsgi.application'
 #     }
 # }
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": dj_database_url.parse(config("DATABASE_URL"))
 }
 
 # Password validation
