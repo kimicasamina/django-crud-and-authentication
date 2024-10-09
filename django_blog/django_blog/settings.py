@@ -71,7 +71,14 @@ WSGI_APPLICATION = 'django_blog.wsgi.application'
 # }
 
 DATABASES = {
-      "default": dj_database_url.parse(config("DATABASE_URL"))
+      "default": {
+        "ENGINE": config("DB_ENGINE"),
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT")
+        }
     }
 
 
