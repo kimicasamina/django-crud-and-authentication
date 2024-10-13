@@ -33,7 +33,7 @@ urlpatterns = [
 
 # static(mediaurl, dir)
 media = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# urlpatterns += media
+urlpatterns += media
 
 urlpatterns += staticfiles_urlpatterns() # new
 
